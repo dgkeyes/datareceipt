@@ -1,0 +1,92 @@
+{
+    "data": [
+        {
+            "submission_id": 1,
+            "row": 1,
+            "values": {
+                "name": "Ravi Kumar",
+                "age": 34,
+                "color": "blue"
+            }
+        },
+        {
+            "submission_id": 1,
+            "row": 2,
+            "values": {
+                "name": "Meena Iyer",
+                "age": 28,
+                "color": "green"
+            }
+        },
+        {
+            "submission_id": 1,
+            "row": 3,
+            "values": {
+                "name": "Arjun Rao",
+                "age": 45,
+                "color": "red"
+            }
+        },
+        {
+            "submission_id": 1,
+            "row": 4,
+            "values": {
+                "name": "Lakshmi Pillai",
+                "age": 52,
+                "color": "blue"
+            }
+        }
+    ],
+    "links": {
+        "next": "https://read-api.test/api/v1/requests/1/data?per_page=1&cursor=eyJpZCI6MSwiX3BvaW50c1RvTmV4dEl0ZW1zIjp0cnVlfQ",
+        "prev": null
+    },
+    "meta": {
+        "request_id": 1,
+        "columns": [
+            {
+                "name": "name",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            },
+            {
+                "name": "age",
+                "type": "integer",
+                "require_non_empty": false,
+                "min": "1",
+                "max": "120",
+                "allowed_values": null
+            },
+            {
+                "name": "color",
+                "type": "text",
+                "require_non_empty": false,
+                "min": null,
+                "max": null,
+                "allowed_values": [
+                    "red",
+                    "green",
+                    "blue"
+                ]
+            }
+        ],
+        "submissions": [
+            {
+                "id": 1,
+                "request_id": 1,
+                "sender_name": "Priya Natarajan",
+                "sender_email": "priya@example.com",
+                "row_count": 4,
+                "original_filename": "data.xlsx",
+                "submitted_at": "2026-08-13T02:51:48.000000Z"
+            }
+        ],
+        "per_page": 1,
+        "next_cursor": "eyJpZCI6MSwiX3BvaW50c1RvTmV4dEl0ZW1zIjp0cnVlfQ",
+        "prev_cursor": null,
+        "path": "https://read-api.test/api/v1/requests/1/data"
+    }
+}

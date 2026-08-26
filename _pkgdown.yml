@@ -1,0 +1,19 @@
+template:
+  bootstrap: 5
+
+reference:
+- title: Set up
+  contents:
+  - datareceipt_api_key
+  - datareceipt_has_key
+  - datareceipt_whoami
+- title: Your requests
+  contents:
+  - list_requests
+  - get_request
+  - get_columns
+- title: The data people sent
+  contents:
+  - get_data
+  - list_submissions
+  - get_submission

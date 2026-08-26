@@ -1,0 +1,74 @@
+{
+    "data": [
+        {
+            "submission_id": 2,
+            "row": 1,
+            "values": {
+                "name": "Grace Eze",
+                "age": 61,
+                "color": "green"
+            }
+        },
+        {
+            "submission_id": 2,
+            "row": 2,
+            "values": {
+                "name": "Daniel Obi",
+                "age": 23,
+                "color": "red"
+            }
+        }
+    ],
+    "links": {
+        "next": "https://read-api.test/api/v1/requests/1/data?per_page=1&cursor=eyJpZCI6MiwiX3BvaW50c1RvTmV4dEl0ZW1zIjp0cnVlfQ",
+        "prev": "https://read-api.test/api/v1/requests/1/data?per_page=1&cursor=eyJpZCI6MiwiX3BvaW50c1RvTmV4dEl0ZW1zIjpmYWxzZX0"
+    },
+    "meta": {
+        "request_id": 1,
+        "columns": [
+            {
+                "name": "name",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            },
+            {
+                "name": "age",
+                "type": "integer",
+                "require_non_empty": false,
+                "min": "1",
+                "max": "120",
+                "allowed_values": null
+            },
+            {
+                "name": "color",
+                "type": "text",
+                "require_non_empty": false,
+                "min": null,
+                "max": null,
+                "allowed_values": [
+                    "red",
+                    "green",
+                    "blue"
+                ]
+            }
+        ],
+        "submissions": [
+            {
+                "id": 2,
+                "request_id": 1,
+                "sender_name": "Tom Okafor",
+                "sender_email": "tom@example.com",
+                "row_count": 2,
+                "original_filename": "data.csv",
+                "submitted_at": "2026-08-13T02:51:48.000000Z"
+            }
+        ],
+        "per_page": 1,
+        "next_cursor": "eyJpZCI6MiwiX3BvaW50c1RvTmV4dEl0ZW1zIjp0cnVlfQ",
+        "prev_cursor": "eyJpZCI6MiwiX3BvaW50c1RvTmV4dEl0ZW1zIjpmYWxzZX0",
+        "path": "https://read-api.test/api/v1/requests/1/data"
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "data": {
+        "id": 3,
+        "title": "Workshop attendance",
+        "description": "Attendance counts per session. Esse ullamco in ex nostrud amet cupidatat ut occaecat cupidatat qui proident elit veniam in. Cupidatat in exercitation ea irure non veniam ex consectetur commodo id. In nisi mollit culpa cupidatat ullamco aute fugiat ipsum esse. Proident dolor esse laboris enim laborum fugiat aliqua. Non excepteur duis excepteur ea nostrud consectetur culpa id pariatur.  Magna amet magna pariatur reprehenderit incididunt enim. Reprehenderit do dolore est et non consectetur voluptate aliquip velit velit aute aute qui. Eiusmod duis cupidatat labore minim eiusmod Lorem incididunt aute voluptate quis anim. Dolor duis do incididunt Lorem incididunt occaecat laboris consectetur do cillum proident ullamco ad cupidatat occaecat.  Cupidatat ad laboris ex. Do ipsum eu id fugiat irure. Cillum ipsum pariatur cillum dolore exercitation. Exercitation consequat pariatur proident officia ut adipisicing excepteur culpa consequat elit culpa id veniam eiusmod voluptate. Aliquip aute sit nostrud cupidatat ullamco voluptate enim nulla ullamco. Nisi incididunt qui dolor. Ipsum exercitation consequat ullamco enim et ullamco aute cupidatat. Officia nulla officia deserunt voluptate nisi non.  Pariatur anim occaecat velit nisi nulla commodo esse consectetur occaecat in mollit. Officia quis consequat labore Lorem magna anim minim. Labore proident aliquip magna ea anim velit laborum duis. Velit magna magna aliquip adipisicing ut magna veniam. Nostrud voluptate non cillum duis nulla cupidatat ipsum. Nulla irure sint id dolore enim et elit.  Velit laborum consectetur ad fugiat esse laborum aute aute duis labore in. Cupidatat irure duis culpa irure excepteur commodo est aliqua nulla. Ullamco laborum quis id dolore laborum. Cillum esse proident id qui est velit. Enim laborum officia Lorem qui dolore ullamco anim anim id sit ea. Ex cillum ea tempor do cupidatat tempor dolore Lorem. Culpa cillum excepteur dolore id laboris do adipisicing ex velit fugiat officia deserunt ipsum consectetur.",
+        "is_open": true,
+        "closed_at": null,
+        "submission_count": 0,
+        "row_count": 0,
+        "columns": [
+            {
+                "name": "session",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            },
+            {
+                "name": "attended",
+                "type": "integer",
+                "require_non_empty": true,
+                "min": null,
+                "max": "500",
+                "allowed_values": null
+            },
+            {
+                "name": "virtual",
+                "type": "boolean",
+                "require_non_empty": false,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            }
+        ],
+        "share_url": "https://read-api.test/r/SHARETOKENREDACTED",
+        "created_at": "2026-08-13T02:56:27.000000Z",
+        "updated_at": "2026-08-24T21:49:44.000000Z"
+    }
+}

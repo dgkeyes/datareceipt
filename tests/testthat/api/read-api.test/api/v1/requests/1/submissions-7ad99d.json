@@ -1,0 +1,66 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "request_id": 1,
+            "sender_name": "Priya Natarajan",
+            "sender_email": "priya@example.com",
+            "row_count": 4,
+            "original_filename": "data.xlsx",
+            "submitted_at": "2026-08-13T02:51:48.000000Z"
+        },
+        {
+            "id": 2,
+            "request_id": 1,
+            "sender_name": "Tom Okafor",
+            "sender_email": "tom@example.com",
+            "row_count": 2,
+            "original_filename": "data.csv",
+            "submitted_at": "2026-08-13T02:51:48.000000Z"
+        },
+        {
+            "id": 3,
+            "request_id": 1,
+            "sender_name": "Sofia Marin",
+            "sender_email": "sofia@example.com",
+            "row_count": 5,
+            "original_filename": null,
+            "submitted_at": "2026-08-13T02:51:48.000000Z"
+        }
+    ],
+    "links": {
+        "first": "https://read-api.test/api/v1/requests/1/submissions?per_page=100&page=1",
+        "last": "https://read-api.test/api/v1/requests/1/submissions?per_page=100&page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "page": null,
+                "active": false
+            },
+            {
+                "url": "https://read-api.test/api/v1/requests/1/submissions?per_page=100&page=1",
+                "label": "1",
+                "page": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "page": null,
+                "active": false
+            }
+        ],
+        "path": "https://read-api.test/api/v1/requests/1/submissions",
+        "per_page": 100,
+        "to": 3,
+        "total": 3
+    }
+}

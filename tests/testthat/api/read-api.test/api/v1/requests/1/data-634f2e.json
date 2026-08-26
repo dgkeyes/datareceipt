@@ -1,0 +1,173 @@
+{
+    "data": [
+        {
+            "submission_id": 1,
+            "row": 1,
+            "values": {
+                "name": "Ravi Kumar",
+                "age": 34,
+                "color": "blue"
+            }
+        },
+        {
+            "submission_id": 1,
+            "row": 2,
+            "values": {
+                "name": "Meena Iyer",
+                "age": 28,
+                "color": "green"
+            }
+        },
+        {
+            "submission_id": 1,
+            "row": 3,
+            "values": {
+                "name": "Arjun Rao",
+                "age": 45,
+                "color": "red"
+            }
+        },
+        {
+            "submission_id": 1,
+            "row": 4,
+            "values": {
+                "name": "Lakshmi Pillai",
+                "age": 52,
+                "color": "blue"
+            }
+        },
+        {
+            "submission_id": 2,
+            "row": 1,
+            "values": {
+                "name": "Grace Eze",
+                "age": 61,
+                "color": "green"
+            }
+        },
+        {
+            "submission_id": 2,
+            "row": 2,
+            "values": {
+                "name": "Daniel Obi",
+                "age": 23,
+                "color": "red"
+            }
+        },
+        {
+            "submission_id": 3,
+            "row": 1,
+            "values": {
+                "name": "Elena Cruz",
+                "age": 39,
+                "color": "blue"
+            }
+        },
+        {
+            "submission_id": 3,
+            "row": 2,
+            "values": {
+                "name": "Marco Diaz",
+                "age": 47,
+                "color": "green"
+            }
+        },
+        {
+            "submission_id": 3,
+            "row": 3,
+            "values": {
+                "name": "Lucia Vega",
+                "age": 31,
+                "color": "red"
+            }
+        },
+        {
+            "submission_id": 3,
+            "row": 4,
+            "values": {
+                "name": "Pablo Sol",
+                "age": 26,
+                "color": "blue"
+            }
+        },
+        {
+            "submission_id": 3,
+            "row": 5,
+            "values": {
+                "name": "Ines Romo",
+                "age": 58,
+                "color": "green"
+            }
+        }
+    ],
+    "links": {
+        "next": null,
+        "prev": null
+    },
+    "meta": {
+        "request_id": 1,
+        "columns": [
+            {
+                "name": "name",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            },
+            {
+                "name": "age",
+                "type": "integer",
+                "require_non_empty": false,
+                "min": "1",
+                "max": "120",
+                "allowed_values": null
+            },
+            {
+                "name": "color",
+                "type": "text",
+                "require_non_empty": false,
+                "min": null,
+                "max": null,
+                "allowed_values": [
+                    "red",
+                    "green",
+                    "blue"
+                ]
+            }
+        ],
+        "submissions": [
+            {
+                "id": 1,
+                "request_id": 1,
+                "sender_name": "Priya Natarajan",
+                "sender_email": "priya@example.com",
+                "row_count": 4,
+                "original_filename": "data.xlsx",
+                "submitted_at": "2026-08-13T02:51:48.000000Z"
+            },
+            {
+                "id": 2,
+                "request_id": 1,
+                "sender_name": "Tom Okafor",
+                "sender_email": "tom@example.com",
+                "row_count": 2,
+                "original_filename": "data.csv",
+                "submitted_at": "2026-08-13T02:51:48.000000Z"
+            },
+            {
+                "id": 3,
+                "request_id": 1,
+                "sender_name": "Sofia Marin",
+                "sender_email": "sofia@example.com",
+                "row_count": 5,
+                "original_filename": null,
+                "submitted_at": "2026-08-13T02:51:48.000000Z"
+            }
+        ],
+        "per_page": 20,
+        "next_cursor": null,
+        "prev_cursor": null,
+        "path": "https://read-api.test/api/v1/requests/1/data"
+    }
+}

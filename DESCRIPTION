@@ -1,0 +1,29 @@
+Package: datareceipt
+Title: Pull Your Data Receipt Data into R
+Version: 0.0.0.9000
+Authors@R:
+    person("David", "Keyes", , "david@rfortherestofus.com", role = c("aut", "cre"))
+Description: Data Receipt <https://datareceipt.io> collects validated
+    spreadsheets from the people you ask. This package pulls what they sent
+    into R as typed tibbles: list your requests, read a request's column
+    spec, and get every accepted row across all submissions in one call.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 4.1)
+Imports:
+    cli,
+    httr2 (>= 1.0.0),
+    rlang,
+    tibble,
+    vctrs
+Suggests:
+    httptest2,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.0.0

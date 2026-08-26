@@ -1,0 +1,63 @@
+{
+    "data": {
+        "id": 1,
+        "request_id": 1,
+        "sender_name": "Priya Natarajan",
+        "sender_email": "priya@example.com",
+        "row_count": 4,
+        "original_filename": "data.xlsx",
+        "submitted_at": "2026-08-13T02:51:48.000000Z",
+        "columns": [
+            {
+                "name": "name",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            },
+            {
+                "name": "age",
+                "type": "integer",
+                "require_non_empty": false,
+                "min": "1",
+                "max": "120",
+                "allowed_values": null
+            },
+            {
+                "name": "color",
+                "type": "text",
+                "require_non_empty": false,
+                "min": null,
+                "max": null,
+                "allowed_values": [
+                    "red",
+                    "green",
+                    "blue"
+                ]
+            }
+        ],
+        "rows": [
+            {
+                "name": "Ravi Kumar",
+                "age": 34,
+                "color": "blue"
+            },
+            {
+                "name": "Meena Iyer",
+                "age": 28,
+                "color": "green"
+            },
+            {
+                "name": "Arjun Rao",
+                "age": 45,
+                "color": "red"
+            },
+            {
+                "name": "Lakshmi Pillai",
+                "age": 52,
+                "color": "blue"
+            }
+        ]
+    }
+}

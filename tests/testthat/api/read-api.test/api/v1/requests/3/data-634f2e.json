@@ -1,0 +1,45 @@
+{
+    "data": [
+
+    ],
+    "links": {
+        "next": null,
+        "prev": null
+    },
+    "meta": {
+        "request_id": 3,
+        "columns": [
+            {
+                "name": "session",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            },
+            {
+                "name": "attended",
+                "type": "integer",
+                "require_non_empty": true,
+                "min": null,
+                "max": "500",
+                "allowed_values": null
+            },
+            {
+                "name": "virtual",
+                "type": "boolean",
+                "require_non_empty": false,
+                "min": null,
+                "max": null,
+                "allowed_values": null
+            }
+        ],
+        "submissions": [
+
+        ],
+        "per_page": 20,
+        "next_cursor": null,
+        "prev_cursor": null,
+        "path": "https://read-api.test/api/v1/requests/3/data"
+    }
+}
