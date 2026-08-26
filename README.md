@@ -76,10 +76,3 @@ columns say where each row came from:
 Pass `include_sender = FALSE` to leave the sender columns out.
 `list_submissions()` and `get_submission()` work one submission at a
 time.
-
-## Pointing at another copy of the site
-
-Set `DATARECEIPT_API_URL` to use a local or preview copy, for example
-`https://datareceipt.test/api/v1`. Set
-`options(datareceipt.verbose = TRUE)` to print each request as it is
-made.
