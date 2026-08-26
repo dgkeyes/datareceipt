@@ -14,7 +14,10 @@
                 "require_non_empty": true,
                 "min": null,
                 "max": null,
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "attended",
@@ -22,7 +25,10 @@
                 "require_non_empty": true,
                 "min": null,
                 "max": "500",
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "virtual",
@@ -30,7 +36,10 @@
                 "require_non_empty": false,
                 "min": null,
                 "max": null,
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             }
         ],
         "share_url": "https://read-api.test/r/SHARETOKENREDACTED",

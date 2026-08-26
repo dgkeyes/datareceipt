@@ -30,6 +30,13 @@ unless \code{include_sender = FALSE}, \code{submitted_at}, \code{sender_name}, a
 \code{sender_email}.
 }
 \details{
+A cell that broke a rule on a column set to accept and flag (rather than
+block the submission) is kept as the sender typed it. Where that text still
+fits the column's type it is cast like any other value (an out-of-range
+\code{"200"} in a whole-number column is \code{200L}); where it does not (\code{"abc"} in
+the same column) it is \code{NA}. Either way \code{\link[=get_flags]{get_flags()}} lists every flagged
+cell with its text and the rule it broke.
+
 The site paginates large requests; this function follows every page and
 returns the whole thing.
 }

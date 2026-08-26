@@ -1,0 +1,164 @@
+{
+    "data": [
+        {
+            "submission_id": 31,
+            "row": 1,
+            "values": {
+                "site_id": "A-01",
+                "enrollment": 12,
+                "completion_rate": 0.85
+            },
+            "flags": [
+
+            ]
+        },
+        {
+            "submission_id": 31,
+            "row": 2,
+            "values": {
+                "site_id": "A-02",
+                "enrollment": 15,
+                "completion_rate": 0.92
+            },
+            "flags": [
+
+            ]
+        },
+        {
+            "submission_id": 31,
+            "row": 3,
+            "values": {
+                "site_id": "B-01",
+                "enrollment": 12,
+                "completion_rate": 0.4
+            },
+            "flags": [
+
+            ]
+        },
+        {
+            "submission_id": 32,
+            "row": 1,
+            "values": {
+                "site_id": "C-01",
+                "enrollment": 88,
+                "completion_rate": 0.7
+            },
+            "flags": [
+
+            ]
+        },
+        {
+            "submission_id": 32,
+            "row": 2,
+            "values": {
+                "site_id": "C-02",
+                "enrollment": 40,
+                "completion_rate": 0.5
+            },
+            "flags": [
+
+            ]
+        },
+        {
+            "submission_id": 33,
+            "row": 1,
+            "values": {
+                "site_id": "1",
+                "enrollment": "-1",
+                "completion_rate": 1
+            },
+            "flags": [
+                {
+                    "column": "enrollment",
+                    "value": "-1",
+                    "message": "must be at least 1"
+                }
+            ]
+        }
+    ],
+    "links": {
+        "next": null,
+        "prev": null
+    },
+    "meta": {
+        "request_id": 24,
+        "columns": [
+            {
+                "name": "site_id",
+                "type": "text",
+                "require_non_empty": true,
+                "min": null,
+                "max": null,
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": "Site ID",
+                "description": "The code on the site door sign, like A-01."
+            },
+            {
+                "name": "enrollment",
+                "type": "integer",
+                "require_non_empty": false,
+                "min": "1",
+                "max": null,
+                "allowed_values": null,
+                "on_break": "flag",
+                "friendly_name": "Enrollment",
+                "description": "People enrolled at the site this month."
+            },
+            {
+                "name": "completion_rate",
+                "type": "numeric",
+                "require_non_empty": false,
+                "min": "0",
+                "max": "1",
+                "allowed_values": null,
+                "on_break": "flag",
+                "friendly_name": "Completion rate",
+                "description": "Share of enrolled people who finished, from 0 to 1."
+            }
+        ],
+        "submissions": [
+            {
+                "id": 31,
+                "request_id": 24,
+                "sender_name": "Maria Lopez",
+                "sender_email": "maria@example.org",
+                "source": "xlsx",
+                "row_count": 3,
+                "flag_count": 0,
+                "original_filename": "demo.xlsx",
+                "submitted_at": "2026-08-26T18:37:19.000000Z",
+                "revised_at": "2026-08-26T19:00:10.000000Z"
+            },
+            {
+                "id": 32,
+                "request_id": 24,
+                "sender_name": "Sam Okafor",
+                "sender_email": "sam@example.org",
+                "source": "xlsx",
+                "row_count": 2,
+                "flag_count": 0,
+                "original_filename": "demo.xlsx",
+                "submitted_at": "2026-08-26T18:37:19.000000Z",
+                "revised_at": "2026-08-26T18:37:19.000000Z"
+            },
+            {
+                "id": 33,
+                "request_id": 24,
+                "sender_name": "DK",
+                "sender_email": "test@test.com",
+                "source": "form",
+                "row_count": 1,
+                "flag_count": 1,
+                "original_filename": null,
+                "submitted_at": "2026-08-26T21:24:59.000000Z",
+                "revised_at": "2026-08-26T22:48:17.000000Z"
+            }
+        ],
+        "per_page": 20,
+        "next_cursor": null,
+        "prev_cursor": null,
+        "path": "https://read-api.test/api/v1/requests/24/data"
+    }
+}

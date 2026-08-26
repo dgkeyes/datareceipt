@@ -50,10 +50,15 @@ get_request <- function(request, key = NULL) {
 #'
 #' @inheritParams get_request
 #'
-#' @return A tibble with one row per column: `name`, `type` (one of `"text"`,
-#'   `"numeric"`, `"integer"`, `"date"`, `"boolean"`), `required` (no empty
-#'   cells allowed), `min`, `max`, and `allowed_values` (a list column of the
-#'   permitted values, empty when there is no such rule).
+#' @return A tibble with one row per column: `name` (the variable name the
+#'   data is keyed by), `type` (one of `"text"`, `"numeric"`, `"integer"`,
+#'   `"date"`, `"boolean"`), `required` (no empty cells allowed), `min`, `max`,
+#'   `allowed_values` (a list column of the permitted values, empty when there
+#'   is no such rule), `on_break` (`"block"` if a value breaking a rule stops
+#'   the submission, `"flag"` if it is accepted and flagged; see
+#'   [get_flags()]), `friendly_name` (what the form shows people, `NA` when
+#'   the variable name is used), and `description` (the explanation shown to
+#'   senders, `NA` when there is none).
 #' @examples
 #' \dontrun{
 #' get_columns(12)

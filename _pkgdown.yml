@@ -17,5 +17,6 @@ reference:
 - title: The data people sent
   contents:
   - get_data
+  - get_flags
   - list_submissions
   - get_submission

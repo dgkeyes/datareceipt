@@ -7,7 +7,10 @@
                 "name": "Elena Cruz",
                 "age": 39,
                 "color": "blue"
-            }
+            },
+            "flags": [
+
+            ]
         },
         {
             "submission_id": 3,
@@ -16,7 +19,10 @@
                 "name": "Marco Diaz",
                 "age": 47,
                 "color": "green"
-            }
+            },
+            "flags": [
+
+            ]
         },
         {
             "submission_id": 3,
@@ -25,7 +31,10 @@
                 "name": "Lucia Vega",
                 "age": 31,
                 "color": "red"
-            }
+            },
+            "flags": [
+
+            ]
         },
         {
             "submission_id": 3,
@@ -34,7 +43,10 @@
                 "name": "Pablo Sol",
                 "age": 26,
                 "color": "blue"
-            }
+            },
+            "flags": [
+
+            ]
         },
         {
             "submission_id": 3,
@@ -43,7 +55,10 @@
                 "name": "Ines Romo",
                 "age": 58,
                 "color": "green"
-            }
+            },
+            "flags": [
+
+            ]
         }
     ],
     "links": {
@@ -59,7 +74,10 @@
                 "require_non_empty": true,
                 "min": null,
                 "max": null,
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "age",
@@ -67,7 +85,10 @@
                 "require_non_empty": false,
                 "min": "1",
                 "max": "120",
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "color",
@@ -79,7 +100,10 @@
                     "red",
                     "green",
                     "blue"
-                ]
+                ],
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             }
         ],
         "submissions": [
@@ -88,9 +112,12 @@
                 "request_id": 1,
                 "sender_name": "Sofia Marin",
                 "sender_email": "sofia@example.com",
+                "source": "pasted",
                 "row_count": 5,
+                "flag_count": 0,
                 "original_filename": null,
-                "submitted_at": "2026-08-13T02:51:48.000000Z"
+                "submitted_at": "2026-08-13T02:51:48.000000Z",
+                "revised_at": null
             }
         ],
         "per_page": 1,

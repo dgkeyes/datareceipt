@@ -5,27 +5,36 @@
             "request_id": 1,
             "sender_name": "Priya Natarajan",
             "sender_email": "priya@example.com",
+            "source": "xlsx",
             "row_count": 4,
+            "flag_count": 0,
             "original_filename": "data.xlsx",
-            "submitted_at": "2026-08-13T02:51:48.000000Z"
+            "submitted_at": "2026-08-13T02:51:48.000000Z",
+            "revised_at": null
         },
         {
             "id": 2,
             "request_id": 1,
             "sender_name": "Tom Okafor",
             "sender_email": "tom@example.com",
+            "source": "csv",
             "row_count": 2,
+            "flag_count": 0,
             "original_filename": "data.csv",
-            "submitted_at": "2026-08-13T02:51:48.000000Z"
+            "submitted_at": "2026-08-13T02:51:48.000000Z",
+            "revised_at": null
         },
         {
             "id": 3,
             "request_id": 1,
             "sender_name": "Sofia Marin",
             "sender_email": "sofia@example.com",
+            "source": "pasted",
             "row_count": 5,
+            "flag_count": 0,
             "original_filename": null,
-            "submitted_at": "2026-08-13T02:51:48.000000Z"
+            "submitted_at": "2026-08-13T02:51:48.000000Z",
+            "revised_at": null
         }
     ],
     "links": {

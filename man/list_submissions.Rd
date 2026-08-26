@@ -15,8 +15,12 @@ variable; see \code{\link[=datareceipt_api_key]{datareceipt_api_key()}}.}
 }
 \value{
 A tibble with one row per submission: \code{id}, \code{request_id},
-\code{sender_name}, \code{sender_email}, \code{row_count}, \code{original_filename}, and
-\code{submitted_at}.
+\code{sender_name}, \code{sender_email}, \code{source} (how the data came in: \code{"xlsx"},
+\code{"csv"}, \code{"paste"}, \code{"typed"}, or \code{"form"}), \code{row_count}, \code{flag_count}
+(cells that broke a rule but were accepted; see \code{\link[=get_flags]{get_flags()}}),
+\code{original_filename}, \code{submitted_at}, and \code{revised_at} (when the request's
+owner last edited the submission's data on the site, or \code{NA} if it is as
+received).
 }
 \description{
 Who sent what, and when, oldest first. The rows themselves come from

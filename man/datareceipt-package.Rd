@@ -8,6 +8,15 @@
 \description{
 Data Receipt \url{https://datareceipt.io} collects validated spreadsheets from the people you ask. This package pulls what they sent into R as typed tibbles: list your requests, read a request's column spec, and get every accepted row across all submissions in one call.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/dgkeyes/datareceipt}
+  \item \url{https://dgkeyes.github.io/datareceipt}
+  \item Report bugs at \url{https://github.com/dgkeyes/datareceipt/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: David Keyes \email{david@rfortherestofus.com}
 

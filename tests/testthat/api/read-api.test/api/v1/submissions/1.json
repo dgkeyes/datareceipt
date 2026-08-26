@@ -4,9 +4,12 @@
         "request_id": 1,
         "sender_name": "Priya Natarajan",
         "sender_email": "priya@example.com",
+        "source": "xlsx",
         "row_count": 4,
+        "flag_count": 0,
         "original_filename": "data.xlsx",
         "submitted_at": "2026-08-13T02:51:48.000000Z",
+        "revised_at": null,
         "columns": [
             {
                 "name": "name",
@@ -14,7 +17,10 @@
                 "require_non_empty": true,
                 "min": null,
                 "max": null,
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "age",
@@ -22,7 +28,10 @@
                 "require_non_empty": false,
                 "min": "1",
                 "max": "120",
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "color",
@@ -34,7 +43,10 @@
                     "red",
                     "green",
                     "blue"
-                ]
+                ],
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             }
         ],
         "rows": [
@@ -58,6 +70,9 @@
                 "age": 52,
                 "color": "blue"
             }
+        ],
+        "flags": [
+
         ]
     }
 }
