@@ -1,5 +1,6 @@
 # Recorded against a local copy of the site whose demo account owns request 1
-# (three submissions) and request 3 (none). See setup-api.R.
+# (three submissions, nothing flagged), request 3 (none), and request 24 (two
+# submissions with flagged cells). See setup-api.R.
 
 httptest2::with_mock_dir("api", {
   test_that("datareceipt_whoami() names the account", {
@@ -35,7 +36,8 @@ httptest2::with_mock_dir("api", {
 
     columns <- get_columns(request)
 
-    expect_named(columns, c("name", "type", "required", "min", "max", "allowed_values"))
+    expect_named(columns, c("name", "type", "required", "min", "max", "allowed_values", "on_break", "friendly_name", "description"))
+    expect_true(all(columns$on_break %in% c("block", "flag")))
     expect_true(all(columns$type %in% c("text", "numeric", "integer", "date", "boolean")))
     expect_type(columns$required, "logical")
     expect_type(columns$allowed_values, "list")
@@ -92,7 +94,10 @@ httptest2::with_mock_dir("api", {
   test_that("list_submissions() and get_submission() work one submission at a time", {
     submissions <- list_submissions(1)
 
-    expect_named(submissions, c("id", "request_id", "sender_name", "sender_email", "row_count", "original_filename", "submitted_at"))
+    expect_named(submissions, c("id", "request_id", "sender_name", "sender_email", "source", "row_count", "flag_count", "original_filename", "submitted_at", "revised_at"))
+    expect_type(submissions$source, "character")
+    expect_identical(submissions$flag_count, c(0L, 0L, 0L))
+    expect_s3_class(submissions$revised_at, "POSIXct")
     expect_identical(nrow(submissions), 3L)
     expect_identical(unique(submissions$request_id), 1L)
     expect_true(!is.unsorted(submissions$id))
@@ -104,6 +109,33 @@ httptest2::with_mock_dir("api", {
     expect_identical(one$row, seq_len(nrow(one)))
     expect_identical(unique(one$sender_name), submissions$sender_name[[1]])
     expect_identical(names(one), names(get_data(1)))
+  })
+
+  test_that("get_flags() lists flagged cells, and get_data() casts them where it can", {
+    flags <- get_flags(24)
+
+    expect_s3_class(flags, "tbl_df")
+    expect_named(flags, c("submission_id", "row", "submitted_at", "sender_name", "sender_email", "column", "value", "message"))
+    expect_gt(nrow(flags), 0L)
+    expect_false(anyNA(flags$sender_name))
+    expect_type(flags$value, "character")
+
+    expect_message(data <- get_data(24), "flagged")
+
+    expect_identical(sum(list_submissions(24)$flag_count), nrow(flags))
+
+    # A flagged whole number out of range is still a number; text in a number column is NA.
+    columns <- get_columns(24)
+    for (i in seq_len(nrow(flags))) {
+      cell <- data[[flags$column[[i]]]][data$submission_id == flags$submission_id[[i]] & data$row == flags$row[[i]]]
+      type <- columns$type[columns$name == flags$column[[i]]]
+      parsed <- suppressWarnings(as.double(flags$value[[i]]))
+      if (type %in% c("integer", "numeric") && !is.na(parsed)) {
+        expect_equal(as.double(cell), parsed)
+      }
+    }
+
+    expect_identical(nrow(get_flags(3)), 0L)
   })
 
   test_that("an unknown id is a 404 with a hint", {

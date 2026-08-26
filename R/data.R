@@ -8,6 +8,13 @@
 #' unless `include_sender = FALSE`, `submitted_at`, `sender_name`, and
 #' `sender_email`.
 #'
+#' A cell that broke a rule on a column set to accept and flag (rather than
+#' block the submission) is kept as the sender typed it. Where that text still
+#' fits the column's type it is cast like any other value (an out-of-range
+#' `"200"` in a whole-number column is `200L`); where it does not (`"abc"` in
+#' the same column) it is `NA`. Either way [get_flags()] lists every flagged
+#' cell with its text and the rule it broke.
+#'
 #' The site paginates large requests; this function follows every page and
 #' returns the whole thing.
 #'
@@ -28,24 +35,36 @@
 #' @export
 get_data <- function(request, include_sender = TRUE, key = NULL) {
   id <- parse_request_id(request)
+  pages <- fetch_data(id, key = key)
 
+  values <- rows_to_tibble(field(pages$rows, "values"), pages$columns)
+
+  meta <- tibble::tibble(
+    submission_id = int_col(pages$rows, "submission_id"),
+    row = int_col(pages$rows, "row")
+  )
+
+  flagged <- sum(lengths(field(pages$rows, "flags")))
+
+  cli::cli_inform(c(
+    "Fetched {nrow(values)} row{?s} from {nrow(pages$submissions)} submission{?s} for request {id}.",
+    if (flagged > 0) c("i" = "{flagged} cell{?s} {?was/were} flagged; {.fn get_flags} lists them.")
+  ))
+
+  bind_meta(with_sender(meta, pages$submissions, include_sender), values)
+}
+
+# Every page of a request's data endpoint, gathered: the rows, the spec, and
+# the submissions they came from.
+fetch_data <- function(id, key = NULL) {
   req <- dr_request(c("requests", id, "data"), key = key) |>
     httr2::req_url_query(per_page = getOption("datareceipt.per_page", 20))
 
   pages <- dr_perform_cursor(req)
 
-  rows <- pages_field(pages, "data")
-  columns <- pages[[1]]$meta$columns
-  submissions <- submissions_to_tibble(unlist(lapply(pages, function(page) page$meta$submissions), recursive = FALSE) %||% list())
-
-  values <- rows_to_tibble(field(rows, "values"), columns)
-
-  meta <- tibble::tibble(
-    submission_id = int_col(rows, "submission_id"),
-    row = int_col(rows, "row")
+  list(
+    rows = pages_field(pages, "data"),
+    columns = pages[[1]]$meta$columns,
+    submissions = submissions_to_tibble(unlist(lapply(pages, function(page) page$meta$submissions), recursive = FALSE) %||% list())
   )
-
-  cli::cli_inform("Fetched {nrow(values)} row{?s} from {nrow(submissions)} submission{?s} for request {id}.")
-
-  bind_meta(with_sender(meta, submissions, include_sender), values)
 }

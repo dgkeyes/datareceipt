@@ -14,7 +14,10 @@
                 "require_non_empty": true,
                 "min": null,
                 "max": null,
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "age",
@@ -22,7 +25,10 @@
                 "require_non_empty": false,
                 "min": "1",
                 "max": "120",
-                "allowed_values": null
+                "allowed_values": null,
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             },
             {
                 "name": "color",
@@ -34,7 +40,10 @@
                     "red",
                     "green",
                     "blue"
-                ]
+                ],
+                "on_break": "block",
+                "friendly_name": null,
+                "description": null
             }
         ],
         "share_url": "https://read-api.test/r/SHARETOKENREDACTED",

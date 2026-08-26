@@ -6,8 +6,12 @@
 #' @inheritParams get_request
 #'
 #' @return A tibble with one row per submission: `id`, `request_id`,
-#'   `sender_name`, `sender_email`, `row_count`, `original_filename`, and
-#'   `submitted_at`.
+#'   `sender_name`, `sender_email`, `source` (how the data came in: `"xlsx"`,
+#'   `"csv"`, `"paste"`, `"typed"`, or `"form"`), `row_count`, `flag_count`
+#'   (cells that broke a rule but were accepted; see [get_flags()]),
+#'   `original_filename`, `submitted_at`, and `revised_at` (when the request's
+#'   owner last edited the submission's data on the site, or `NA` if it is as
+#'   received).
 #' @examples
 #' \dontrun{
 #' list_submissions(12)
@@ -57,9 +61,12 @@ submissions_to_tibble <- function(items) {
     request_id = int_col(items, "request_id"),
     sender_name = chr_col(items, "sender_name"),
     sender_email = chr_col(items, "sender_email"),
+    source = chr_col(items, "source"),
     row_count = int_col(items, "row_count"),
+    flag_count = int_col(items, "flag_count"),
     original_filename = chr_col(items, "original_filename"),
-    submitted_at = time_col(items, "submitted_at")
+    submitted_at = time_col(items, "submitted_at"),
+    revised_at = time_col(items, "revised_at")
   )
 }
 

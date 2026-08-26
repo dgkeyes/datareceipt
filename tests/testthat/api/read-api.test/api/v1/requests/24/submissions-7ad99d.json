@@ -1,0 +1,75 @@
+{
+    "data": [
+        {
+            "id": 31,
+            "request_id": 24,
+            "sender_name": "Maria Lopez",
+            "sender_email": "maria@example.org",
+            "source": "xlsx",
+            "row_count": 3,
+            "flag_count": 0,
+            "original_filename": "demo.xlsx",
+            "submitted_at": "2026-08-26T18:37:19.000000Z",
+            "revised_at": "2026-08-26T19:00:10.000000Z"
+        },
+        {
+            "id": 32,
+            "request_id": 24,
+            "sender_name": "Sam Okafor",
+            "sender_email": "sam@example.org",
+            "source": "xlsx",
+            "row_count": 2,
+            "flag_count": 0,
+            "original_filename": "demo.xlsx",
+            "submitted_at": "2026-08-26T18:37:19.000000Z",
+            "revised_at": "2026-08-26T18:37:19.000000Z"
+        },
+        {
+            "id": 33,
+            "request_id": 24,
+            "sender_name": "DK",
+            "sender_email": "test@test.com",
+            "source": "form",
+            "row_count": 1,
+            "flag_count": 1,
+            "original_filename": null,
+            "submitted_at": "2026-08-26T21:24:59.000000Z",
+            "revised_at": "2026-08-26T22:48:17.000000Z"
+        }
+    ],
+    "links": {
+        "first": "https://read-api.test/api/v1/requests/24/submissions?per_page=100&page=1",
+        "last": "https://read-api.test/api/v1/requests/24/submissions?per_page=100&page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "page": null,
+                "active": false
+            },
+            {
+                "url": "https://read-api.test/api/v1/requests/24/submissions?per_page=100&page=1",
+                "label": "1",
+                "page": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "page": null,
+                "active": false
+            }
+        ],
+        "path": "https://read-api.test/api/v1/requests/24/submissions",
+        "per_page": 100,
+        "to": 3,
+        "total": 3
+    }
+}

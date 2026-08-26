@@ -76,3 +76,19 @@ columns say where each row came from:
 Pass `include_sender = FALSE` to leave the sender columns out.
 `list_submissions()` and `get_submission()` work one submission at a
 time.
+
+## Flagged cells
+
+A column can be set to accept a value that breaks its rules and flag it,
+rather than block the submission. Those cells come back from
+`get_data()` cast where the text allows (an out-of-range `"200"` in a
+whole-number column is `200L`) and as `NA` where it does not (`"abc"` in
+the same column). `get_flags()` lists them all:
+
+``` r
+get_flags(12)
+#> # A tibble: 2 × 8
+#>   submission_id   row submitted_at        sender_name sender_email  column value message
+#>           <int> <int> <dttm>              <chr>       <chr>         <chr>  <chr> <chr>
+#> 1            41     7 2026-08-13 22:20:49 Vivian Lee  vivian@ex.org hours  -3    must be at least 0
+```

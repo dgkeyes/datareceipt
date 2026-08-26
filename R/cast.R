@@ -5,6 +5,11 @@
 # ordinary cases: a column that is empty on one page becomes logical, one
 # decimal turns an integer column into double, and two pages that disagree
 # refuse to bind.
+#
+# A flagged cell (one that broke a rule on a column set to accept and flag)
+# holds the sender's text as a string, whatever the column's type. Casting
+# is therefore lenient: "200" in an integer column is still 200, and "abc"
+# in one is NA. The text itself is available from get_flags().
 
 # Column builders for lists of API objects (requests, submissions, specs).
 field <- function(items, name) {
@@ -29,21 +34,28 @@ cast_column <- function(values, type) {
   switch(
     type,
     text = vapply(values, function(v) if (is.na(v)) NA_character_ else as.character(v), character(1)),
-    numeric = vapply(values, function(v) if (is.na(v)) NA_real_ else as.double(v), double(1)),
+    numeric = cast_double(values),
     integer = cast_integer(values),
-    date = as.Date(vapply(values, function(v) if (is.na(v)) NA_character_ else as.character(v), character(1))),
+    date = as.Date(vapply(values, function(v) if (is.na(v)) NA_character_ else as.character(v), character(1)), format = "%Y-%m-%d"),
     boolean = vapply(values, function(v) if (is.na(v)) NA else as.logical(v), logical(1)),
     cli::cli_abort("Unknown column type {.val {type}}.")
   )
 }
 
+# Doubles, with a flagged value that is not a number becoming NA rather
+# than a warning.
+cast_double <- function(values) {
+  vapply(values, function(v) if (is.na(v)) NA_real_ else suppressWarnings(as.double(v)), double(1))
+}
+
 # Whole numbers become R integers when they fit, otherwise doubles: R's
 # integer tops out at about 2.1 billion, and a column of, say, revenue in
-# pence can pass that.
+# pence can pass that. A flagged value with a fraction keeps it, so the
+# column is double then too.
 cast_integer <- function(values) {
-  doubles <- vapply(values, function(v) if (is.na(v)) NA_real_ else as.double(v), double(1))
+  doubles <- cast_double(values)
 
-  if (any(abs(doubles) > .Machine$integer.max, na.rm = TRUE)) {
+  if (any(abs(doubles) > .Machine$integer.max, na.rm = TRUE) || any(doubles != trunc(doubles), na.rm = TRUE)) {
     return(doubles)
   }
 
@@ -71,7 +83,10 @@ columns_to_tibble <- function(spec) {
     required = lgl_col(spec, "require_non_empty"),
     min = chr_col(spec, "min"),
     max = chr_col(spec, "max"),
-    allowed_values = lapply(spec, function(column) as.character(unlist(column$allowed_values)))
+    allowed_values = lapply(spec, function(column) as.character(unlist(column$allowed_values))),
+    on_break = chr_col(spec, "on_break"),
+    friendly_name = chr_col(spec, "friendly_name"),
+    description = chr_col(spec, "description")
   )
 }
 

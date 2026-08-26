@@ -14,10 +14,15 @@ get_columns(request, key = NULL)
 variable; see \code{\link[=datareceipt_api_key]{datareceipt_api_key()}}.}
 }
 \value{
-A tibble with one row per column: \code{name}, \code{type} (one of \code{"text"},
-\code{"numeric"}, \code{"integer"}, \code{"date"}, \code{"boolean"}), \code{required} (no empty
-cells allowed), \code{min}, \code{max}, and \code{allowed_values} (a list column of the
-permitted values, empty when there is no such rule).
+A tibble with one row per column: \code{name} (the variable name the
+data is keyed by), \code{type} (one of \code{"text"}, \code{"numeric"}, \code{"integer"},
+\code{"date"}, \code{"boolean"}), \code{required} (no empty cells allowed), \code{min}, \code{max},
+\code{allowed_values} (a list column of the permitted values, empty when there
+is no such rule), \code{on_break} (\code{"block"} if a value breaking a rule stops
+the submission, \code{"flag"} if it is accepted and flagged; see
+\code{\link[=get_flags]{get_flags()}}), \code{friendly_name} (what the form shows people, \code{NA} when
+the variable name is used), and \code{description} (the explanation shown to
+senders, \code{NA} when there is none).
 }
 \description{
 The spec a request was built with: each column's name, type, and rules.
