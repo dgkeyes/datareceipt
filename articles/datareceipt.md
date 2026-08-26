@@ -1,0 +1,133 @@
+# Getting started with datareceipt
+
+[Data Receipt](https://datareceipt.io) is for asking people for data in
+a shape you choose. You define a request (a set of columns, each with a
+type and rules), share its link, and every spreadsheet uploaded against
+it is validated before it is accepted. This package is the other end of
+that: it brings the accepted data into R.
+
+## Your key
+
+Every call is authenticated with an API token that belongs to your
+account. Create one on the site under **Settings \> API tokens**, then
+save it once with `install = TRUE`:
+
+``` r
+
+library(datareceipt)
+
+datareceipt_api_key("12|dr_...", install = TRUE)
+```
+
+This appends `DATARECEIPT_API_KEY` to your `.Renviron`, so R finds it in
+every future session. Restart R (or run `readRenviron("~/.Renviron")`)
+and check:
+
+``` r
+
+library(datareceipt)
+
+datareceipt_whoami()
+```
+
+## What have I asked for?
+
+[`list_requests()`](https://dgkeyes.github.io/datareceipt/reference/list_requests.md)
+is a tibble of your requests, newest first, with how many submissions
+and rows each has received:
+
+``` r
+
+requests <- list_requests()
+requests
+```
+
+Each request’s spec is in the `columns` list column, or ask for it
+directly. This is the shape your data will come back in, so it is worth
+a look before you start:
+
+``` r
+
+get_columns(requests$id[[1]])
+```
+
+`type` is one of `text`, `numeric`, `integer`, `date`, or `boolean`;
+`required` means no empty cells were allowed; `min`, `max`, and
+`allowed_values` are the rules senders had to meet. `on_break` says what
+happens to a value that breaks them: `block` stops the submission,
+`flag` accepts the value and marks it (more on that below).
+`friendly_name` and `description` are what senders see on the form.
+
+## The data
+
+[`get_data()`](https://dgkeyes.github.io/datareceipt/reference/get_data.md)
+returns every accepted row across every submission to a request, as one
+tibble. Pass the id, or paste the request’s URL from your browser:
+
+``` r
+
+data <- get_data(requests$id[[1]])
+data
+```
+
+Columns are typed from the spec: text is character, numbers are double,
+whole numbers are integer, dates are `Date`, yes/no is logical, and an
+empty cell is `NA`. The first columns say where each row came from:
+`submission_id`, `row` (its position within that submission),
+`submitted_at`, `sender_name`, and `sender_email`. Leave the sender
+columns out with `include_sender = FALSE`.
+
+From here it is ordinary tidyverse work:
+
+``` r
+
+library(dplyr)
+
+data |>
+  summarise(rows = n(), .by = sender_name)
+```
+
+## Flagged cells
+
+A column set to `flag` accepts a value that breaks its rules and keeps
+it as the sender typed it. In
+[`get_data()`](https://dgkeyes.github.io/datareceipt/reference/get_data.md)
+those cells are cast where the text allows it, so an out-of-range
+`"200"` in a whole-number column is still `200L`, and are `NA` where it
+does not, like `"abc"` in the same column.
+[`get_data()`](https://dgkeyes.github.io/datareceipt/reference/get_data.md)
+tells you how many cells were flagged, and
+[`get_flags()`](https://dgkeyes.github.io/datareceipt/reference/get_flags.md)
+lists them: where each one is, the text as sent, and the rule it broke.
+
+``` r
+
+get_flags(requests$id[[1]])
+```
+
+## One submission at a time
+
+[`list_submissions()`](https://dgkeyes.github.io/datareceipt/reference/list_submissions.md)
+shows who sent what, how (`source`: an uploaded `xlsx` or `csv`, data
+pasted or typed into the sheet, or the one-entry `form`), and when,
+along with how many cells were flagged and whether the request’s owner
+has since edited the submission on the site (`revised_at`).
+[`get_submission()`](https://dgkeyes.github.io/datareceipt/reference/get_submission.md)
+fetches one submission’s rows in the same shape as
+[`get_data()`](https://dgkeyes.github.io/datareceipt/reference/get_data.md):
+
+``` r
+
+submissions <- list_submissions(requests$id[[1]])
+submissions
+
+get_submission(submissions$id[[1]])
+```
+
+## When something goes wrong
+
+Errors carry the site’s message and a hint. A 401 means the key is
+missing, wrong, expired, or revoked; a 404 means nothing with that id
+exists in the account the key belongs to. Set
+`options(datareceipt.verbose = TRUE)` to print each request URL as it is
+made.
