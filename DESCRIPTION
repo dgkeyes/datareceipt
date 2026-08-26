@@ -8,6 +8,8 @@ Description: Data Receipt <https://datareceipt.io> collects validated
     into R as typed tibbles: list your requests, read a request's column
     spec, and get every accepted row across all submissions in one call.
 License: MIT + file LICENSE
+URL: https://github.com/dgkeyes/datareceipt, https://dgkeyes.github.io/datareceipt
+BugReports: https://github.com/dgkeyes/datareceipt/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Depends:

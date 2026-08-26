@@ -10,7 +10,7 @@ dr_request <- function(path, key = NULL, call = rlang::caller_env()) {
   httr2::request(dr_base_url()) |>
     httr2::req_url_path_append(paste(path, collapse = "/")) |>
     httr2::req_auth_bearer_token(dr_key(key, call = call)) |>
-    httr2::req_user_agent("datareceipt R package (https://datareceipt.io)") |>
+    httr2::req_user_agent("datareceipt R package (https://github.com/dgkeyes/datareceipt)") |>
     httr2::req_headers(Accept = "application/json") |>
     httr2::req_error(body = dr_error_body) |>
     httr2::req_retry(max_tries = 3)
