@@ -84,9 +84,7 @@ columns_to_tibble <- function(spec) {
     min = chr_col(spec, "min"),
     max = chr_col(spec, "max"),
     allowed_values = lapply(spec, function(column) as.character(unlist(column$allowed_values))),
-    on_break = chr_col(spec, "on_break"),
-    friendly_name = chr_col(spec, "friendly_name"),
-    description = chr_col(spec, "description")
+    on_break = chr_col(spec, "on_break")
   )
 }
 

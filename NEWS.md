@@ -5,6 +5,9 @@
   2026-08-26 (kept on the app's `bring-back-sender-form` branch); `"form"`,
   `"paste"`, and `"typed"` remain on submissions from before then. Docs
   wording follows.
+* `get_columns()` no longer returns `friendly_name` or `description`; the
+  site set those column settings aside on the same day and the API stopped
+  sending them.
 * `get_flags()` lists every cell that broke a rule but was accepted, with the
   text as sent and the rule it broke. `get_data()` says how many there are.
   A flagged value that still fits its column's type is cast like any other;
