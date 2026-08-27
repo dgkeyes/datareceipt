@@ -103,9 +103,8 @@ it is worth a look before you start:</p>
 <code>min</code>, <code>max</code>, and <code>allowed_values</code> are
 the rules senders had to meet. <code>on_break</code> says what happens
 to a value that breaks them: <code>block</code> stops the submission,
-<code>flag</code> accepts the value and marks it (more on that below).
-<code>friendly_name</code> and <code>description</code> are what senders
-see on the form.</p>
+<code>flag</code> accepts the value and marks it (more on that
+below).</p>
 </div>
 <div class="section level2">
 <h2 id="the-data">The data<a class="anchor" aria-label="anchor" href="#the-data"></a>
@@ -148,9 +147,10 @@ text as sent, and the rule it broke.</p>
 <h2 id="one-submission-at-a-time">One submission at a time<a class="anchor" aria-label="anchor" href="#one-submission-at-a-time"></a>
 </h2>
 <p><code><a href="../reference/list_submissions.html">list_submissions()</a></code> shows who sent what, how
-(<code>source</code>: an uploaded <code>xlsx</code> or <code>csv</code>,
-data pasted or typed into the sheet, or the one-entry
-<code>form</code>), and when, along with how many cells were flagged and
+(<code>source</code>: an uploaded <code>xlsx</code> or <code>csv</code>;
+submissions from August 2026 may read <code>paste</code>,
+<code>typed</code>, or <code>form</code>, from sender methods the site
+no longer offers), and when, along with how many cells were flagged and
 whether the request’s owner has since edited the submission on the site
 (<code>revised_at</code>). <code><a href="../reference/get_submission.html">get_submission()</a></code> fetches one
 submission’s rows in the same shape as <code><a href="../reference/get_data.html">get_data()</a></code>:</p>

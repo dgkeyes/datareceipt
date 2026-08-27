@@ -2,6 +2,20 @@
 
 ## datareceipt 0.0.0.9000
 
+- `source` in
+  [`list_submissions()`](https://dgkeyes.github.io/datareceipt/reference/list_submissions.md)
+  and
+  [`get_submission()`](https://dgkeyes.github.io/datareceipt/reference/get_submission.md)
+  is `"xlsx"` or `"csv"` for new submissions. The one-entry form was
+  taken off the site on 2026-08-26 (kept on the app’s
+  `bring-back-sender-form` branch); `"form"`, `"paste"`, and `"typed"`
+  remain on submissions from before then. Docs wording follows.
+
+- [`get_columns()`](https://dgkeyes.github.io/datareceipt/reference/get_columns.md)
+  no longer returns `friendly_name` or `description`; the site set those
+  column settings aside on the same day and the API stopped sending
+  them.
+
 - [`get_flags()`](https://dgkeyes.github.io/datareceipt/reference/get_flags.md)
   lists every cell that broke a rule but was accepted, with the text as
   sent and the rule it broke.

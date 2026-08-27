@@ -34,10 +34,7 @@ keyed by), `type` (one of `"text"`, `"numeric"`, `"integer"`, `"date"`,
 `allowed_values` (a list column of the permitted values, empty when
 there is no such rule), `on_break` (`"block"` if a value breaking a rule
 stops the submission, `"flag"` if it is accepted and flagged; see
-[`get_flags()`](https://dgkeyes.github.io/datareceipt/reference/get_flags.md)),
-`friendly_name` (what the form shows people, `NA` when the variable name
-is used), and `description` (the explanation shown to senders, `NA` when
-there is none).
+[`get_flags()`](https://dgkeyes.github.io/datareceipt/reference/get_flags.md)).
 
 ## Examples
 

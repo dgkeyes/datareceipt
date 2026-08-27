@@ -63,8 +63,10 @@ variable; see <code><a href="datareceipt_api_key.html">datareceipt_api_key()</a>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A tibble with one row per submission: <code>id</code>, <code>request_id</code>,
-<code>sender_name</code>, <code>sender_email</code>, <code>source</code> (how the data came in: <code>"xlsx"</code>,
-<code>"csv"</code>, <code>"paste"</code>, <code>"typed"</code>, or <code>"form"</code>), <code>row_count</code>, <code>flag_count</code>
+<code>sender_name</code>, <code>sender_email</code>, <code>source</code> (how the data came in: an uploaded
+<code>"xlsx"</code> or <code>"csv"</code>; submissions from August 2026 may read <code>"paste"</code>,
+<code>"typed"</code>, or <code>"form"</code>, from sender methods the site no longer offers),
+<code>row_count</code>, <code>flag_count</code>
 (cells that broke a rule but were accepted; see <code><a href="get_flags.html">get_flags()</a></code>),
 <code>original_filename</code>, <code>submitted_at</code>, and <code>revised_at</code> (when the request's
 owner last edited the submission's data on the site, or <code>NA</code> if it is as

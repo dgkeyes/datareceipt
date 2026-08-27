@@ -56,7 +56,6 @@ get_columns(requests$id[[1]])
 `allowed_values` are the rules senders had to meet. `on_break` says what
 happens to a value that breaks them: `block` stops the submission,
 `flag` accepts the value and marks it (more on that below).
-`friendly_name` and `description` are what senders see on the form.
 
 ## The data
 
@@ -108,10 +107,11 @@ get_flags(requests$id[[1]])
 ## One submission at a time
 
 [`list_submissions()`](https://dgkeyes.github.io/datareceipt/reference/list_submissions.md)
-shows who sent what, how (`source`: an uploaded `xlsx` or `csv`, data
-pasted or typed into the sheet, or the one-entry `form`), and when,
-along with how many cells were flagged and whether the request’s owner
-has since edited the submission on the site (`revised_at`).
+shows who sent what, how (`source`: an uploaded `xlsx` or `csv`;
+submissions from August 2026 may read `paste`, `typed`, or `form`, from
+sender methods the site no longer offers), and when, along with how many
+cells were flagged and whether the request’s owner has since edited the
+submission on the site (`revised_at`).
 [`get_submission()`](https://dgkeyes.github.io/datareceipt/reference/get_submission.md)
 fetches one submission’s rows in the same shape as
 [`get_data()`](https://dgkeyes.github.io/datareceipt/reference/get_data.md):
