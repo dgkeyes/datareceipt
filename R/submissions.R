@@ -6,8 +6,10 @@
 #' @inheritParams get_request
 #'
 #' @return A tibble with one row per submission: `id`, `request_id`,
-#'   `sender_name`, `sender_email`, `source` (how the data came in: `"xlsx"`,
-#'   `"csv"`, `"paste"`, `"typed"`, or `"form"`), `row_count`, `flag_count`
+#'   `sender_name`, `sender_email`, `source` (how the data came in: an uploaded
+#'   `"xlsx"` or `"csv"`; submissions from August 2026 may read `"paste"`,
+#'   `"typed"`, or `"form"`, from sender methods the site no longer offers),
+#'   `row_count`, `flag_count`
 #'   (cells that broke a rule but were accepted; see [get_flags()]),
 #'   `original_filename`, `submitted_at`, and `revised_at` (when the request's
 #'   owner last edited the submission's data on the site, or `NA` if it is as
