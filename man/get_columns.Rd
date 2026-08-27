@@ -20,7 +20,7 @@ data is keyed by), \code{type} (one of \code{"text"}, \code{"numeric"}, \code{"i
 \code{allowed_values} (a list column of the permitted values, empty when there
 is no such rule), \code{on_break} (\code{"block"} if a value breaking a rule stops
 the submission, \code{"flag"} if it is accepted and flagged; see
-\code{\link[=get_flags]{get_flags()}}), \code{friendly_name} (what the data dictionary shows people, \code{NA} when
+\code{\link[=get_flags]{get_flags()}}), \code{friendly_name} (what the form shows people, \code{NA} when
 the variable name is used), and \code{description} (the explanation shown to
 senders, \code{NA} when there is none).
 }

@@ -15,10 +15,8 @@ variable; see \code{\link[=datareceipt_api_key]{datareceipt_api_key()}}.}
 }
 \value{
 A tibble with one row per submission: \code{id}, \code{request_id},
-\code{sender_name}, \code{sender_email}, \code{source} (how the data came in: an uploaded
-\code{"xlsx"} or \code{"csv"}; submissions from August 2026 may read \code{"paste"},
-\code{"typed"}, or \code{"form"}, from sender methods the site no longer offers),
-\code{row_count}, \code{flag_count}
+\code{sender_name}, \code{sender_email}, \code{source} (how the data came in: \code{"xlsx"},
+\code{"csv"}, \code{"paste"}, \code{"typed"}, or \code{"form"}), \code{row_count}, \code{flag_count}
 (cells that broke a rule but were accepted; see \code{\link[=get_flags]{get_flags()}}),
 \code{original_filename}, \code{submitted_at}, and \code{revised_at} (when the request's
 owner last edited the submission's data on the site, or \code{NA} if it is as

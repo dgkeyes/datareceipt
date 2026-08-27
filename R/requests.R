@@ -56,7 +56,7 @@ get_request <- function(request, key = NULL) {
 #'   `allowed_values` (a list column of the permitted values, empty when there
 #'   is no such rule), `on_break` (`"block"` if a value breaking a rule stops
 #'   the submission, `"flag"` if it is accepted and flagged; see
-#'   [get_flags()]), `friendly_name` (what the data dictionary shows people, `NA` when
+#'   [get_flags()]), `friendly_name` (what the form shows people, `NA` when
 #'   the variable name is used), and `description` (the explanation shown to
 #'   senders, `NA` when there is none).
 #' @examples
