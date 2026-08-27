@@ -51,7 +51,7 @@ Each request's spec is in the `columns` list column, or ask for it directly. Thi
 get_columns(requests$id[[1]])
 ```
 
-`type` is one of `text`, `numeric`, `integer`, `date`, or `boolean`; `required` means no empty cells were allowed; `min`, `max`, and `allowed_values` are the rules senders had to meet. `on_break` says what happens to a value that breaks them: `block` stops the submission, `flag` accepts the value and marks it (more on that below).
+`type` is one of `text`, `numeric`, `integer`, `date`, or `boolean`; `required` means no empty cells were allowed; `min`, `max`, and `allowed_values` are the rules senders had to meet. `on_break` says what happens to a value that breaks them: `block` stops the submission, `flag` accepts the value and marks it (more on that below). `friendly_name` and `description` are the plain-language name and note the request's owner wrote for the column, as shown in the data dictionary.
 
 ## The data
 

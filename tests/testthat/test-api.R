@@ -36,7 +36,7 @@ httptest2::with_mock_dir("api", {
 
     columns <- get_columns(request)
 
-    expect_named(columns, c("name", "type", "required", "min", "max", "allowed_values", "on_break"))
+    expect_named(columns, c("name", "type", "required", "min", "max", "allowed_values", "on_break", "friendly_name", "description"))
     expect_true(all(columns$on_break %in% c("block", "flag")))
     expect_true(all(columns$type %in% c("text", "numeric", "integer", "date", "boolean")))
     expect_type(columns$required, "logical")

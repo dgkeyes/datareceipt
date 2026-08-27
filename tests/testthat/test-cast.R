@@ -77,7 +77,7 @@ test_that("bind_meta keeps our columns first and renames a clashing data column"
   expect_identical(out$row_value, c("a", "b"))
 })
 
-test_that("columns_to_tibble carries what a broken rule does and ignores keys it does not know", {
+test_that("columns_to_tibble carries the wording and what a broken rule does", {
   spec <- list(
     list(name = "site_id", type = "text", require_non_empty = TRUE, min = NULL, max = NULL, allowed_values = NULL, on_break = "block", friendly_name = "Site ID", description = "The code on the door."),
     list(name = "rate", type = "numeric", require_non_empty = FALSE, min = "0", max = "1", allowed_values = NULL, on_break = "flag", friendly_name = NULL, description = NULL)
@@ -85,8 +85,10 @@ test_that("columns_to_tibble carries what a broken rule does and ignores keys it
 
   out <- columns_to_tibble(spec)
 
-  expect_named(out, c("name", "type", "required", "min", "max", "allowed_values", "on_break"))
+  expect_named(out, c("name", "type", "required", "min", "max", "allowed_values", "on_break", "friendly_name", "description"))
   expect_identical(out$on_break, c("block", "flag"))
+  expect_identical(out$friendly_name, c("Site ID", NA))
+  expect_identical(out$description, c("The code on the door.", NA))
   expect_identical(out$min, c(NA, "0"))
 })
 
