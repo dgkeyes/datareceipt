@@ -51,7 +51,7 @@ Each request's spec is in the `columns` list column, or ask for it directly. Thi
 get_columns(requests$id[[1]])
 ```
 
-`type` is one of `text`, `numeric`, `integer`, `date`, or `boolean`; `required` means no empty cells were allowed; `min`, `max`, and `allowed_values` are the rules senders had to meet. `on_break` says what happens to a value that breaks them: `block` stops the submission, `flag` accepts the value and marks it (more on that below). `friendly_name` and `description` are what senders see on the form.
+`type` is one of `text`, `numeric`, `integer`, `date`, or `boolean`; `required` means no empty cells were allowed; `min`, `max`, and `allowed_values` are the rules senders had to meet. `on_break` says what happens to a value that breaks them: `block` stops the submission, `flag` accepts the value and marks it (more on that below).
 
 ## The data
 
@@ -83,7 +83,7 @@ get_flags(requests$id[[1]])
 
 ## One submission at a time
 
-`list_submissions()` shows who sent what, how (`source`: an uploaded `xlsx` or `csv`, data pasted or typed into the sheet, or the one-entry `form`), and when, along with how many cells were flagged and whether the request's owner has since edited the submission on the site (`revised_at`). `get_submission()` fetches one submission's rows in the same shape as `get_data()`:
+`list_submissions()` shows who sent what, how (`source`: an uploaded `xlsx` or `csv`; submissions from August 2026 may read `paste`, `typed`, or `form`, from sender methods the site no longer offers), and when, along with how many cells were flagged and whether the request's owner has since edited the submission on the site (`revised_at`). `get_submission()` fetches one submission's rows in the same shape as `get_data()`:
 
 ```{r}
 submissions <- list_submissions(requests$id[[1]])
